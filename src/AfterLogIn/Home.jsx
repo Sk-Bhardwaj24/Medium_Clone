@@ -9,7 +9,7 @@ const Div = styled.div`
   width: 45%;
   margin: auto;
   position: absolute;
-  margin-left: 15vw;
+  margin-left: 14vw;
   margin-top: 4vh;
 `;
 const Wiv = styled.div`
@@ -102,13 +102,13 @@ export const Home = () => {
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
 
-    fetch(
-      `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${api1}`
-    )
-      .then((res) => res.json())
-      .then((res) => setAdata([...adata, ...res.articles]))
-      .catch((err) => console.log(err))
-      .finally(() => setIsLoading(false));
+    // fetch(
+    //   `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${api1}`
+    // )
+    //   .then((res) => res.json())
+    //   .then((res) => setAdata([...adata, ...res.articles]))
+    //   .catch((err) => console.log(err))
+    //   .finally(() => setIsLoading(false));
     console.log("hallo");
   }, []);
 
