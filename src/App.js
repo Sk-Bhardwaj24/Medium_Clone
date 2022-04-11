@@ -95,41 +95,5 @@ const App = () => {
   );
 };
 
-// //  {/* <Landingleft /> */}
-//       {/* <Landingpage /> */}
-//       {/* <Leftafterpublish /> */}
-//       {/* <WriteBlog/> */}
-//       {/* <YourStory/> */}
-//  {/* <Landingleft/> */}
-
-// return
-// AuthDetails===false?
-//   (
-//     <div>
-//       <Navbar />
-//       <Routes>
-//         <Route path="/" element={<Landingpage />} />
-//         <Route path="/ourStory" element={<OurStorymain />} />
-//         <Route path="/memberShip" element={<Membership />} />
-//         <Route path="/write" element={<Write />} />
-//         <Route path="/logIn" element={<Login />} />
-//         <Route path="/startIn" element={<Login />} />
-//         <Route path="/register" element={<Signup />} />
-//         <Route path="/loading" element={<Loading />} />
-//         <Route path="/afterLogincomp" element={<AfterLogincomp />} />
-//         {/* <Route path="/home" element={<Lastblog />} /> */}
-//         {/* <Route path="/allpublished" element={<ListOfStory />} /> */}
-//       </Routes>
-//       {/* <Landingleft /> */}
-//       {/* <Landingpage /> */}
-//       {/* <Leftafterpublish /> */}
-//       {/* <WriteBlog/> */}
-//       {/* <Navbar2 />
-//       <SideBar></SideBar> */}
-//     </div>
-
-//   ):(
-
-// };
 
 export default App;
