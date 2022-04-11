@@ -57,7 +57,6 @@ const App = () => {
         </Div>
       ) : (
         <>
-          {" "}
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Landingpage />} />
