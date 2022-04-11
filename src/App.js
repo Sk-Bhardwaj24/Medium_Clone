@@ -23,8 +23,8 @@ import { loadData } from "./Localstorage";
 import { isAuthorized } from "./Redux/IsAuth/action";
 import { Home } from "./AfterLogIn/Home.jsx";
 const Div = styled.div`
-  /* display: ${(props) => (props.Data ? "flex" : "block")};
-  justify-content: ${(props) => (props.Data ? "space-between" : "null")}; */
+  display: ${(props) => (props.Data ? "flex" : "block")};
+  justify-content: ${(props) => (props.Data ? "space-between" : "null")};
 `;
 const App = () => {
   const dispatch = useDispatch();
@@ -60,7 +60,7 @@ const App = () => {
           {" "}
           <Navbar />
           <Routes>
-            <Route exact path="/" element={<Landingpage />} />
+            <Route path="/" element={<Landingpage />} />
             <Route path="/ourStory" element={<OurStorymain />} />
             <Route path="/memberShip" element={<Membership />} />
             <Route path="/write" element={<Write />} />

@@ -15,12 +15,20 @@ const Div = styled.div`
 `;
 const Wiv = styled.div`
   display: flex;
+  margin-top: 40px;
   flex-direction: column;
   /* margin-bottom: 40px; */
   .wiv1 {
     display: flex;
     flex-direction: row;
     margin-left: 3vw;
+    /* margin-bottom: px; */
+    margin-bottom: 20px;
+  }
+  .wiv13 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0vw;
     /* margin-bottom: px; */
     margin-bottom: 20px;
   }
@@ -120,7 +128,7 @@ export const Home = () => {
             <div className="wiv11">+</div>
             <div className="wiv12">Keep up with the latest in any topic</div>
           </div>
-          <div className="wiv1">
+          <div className="wiv13">
             <div className="wiv123">Following</div>
             <div className="wiv123">Recommended</div>
           </div>
@@ -193,7 +201,7 @@ export const Home = () => {
         )}
         {adata.map((eblog, idx) => (
           <>
-            <div key={idx} className={styles.ll2}>
+            <div key={idx} className={styles.ll2h}>
               <div className={styles.ll3}>
                 <div className={styles.ll4}>
                   <div className={styles.ll41}>
@@ -251,7 +259,7 @@ export const Home = () => {
                 <img src={eblog.urlToImage} alt="" />
               </div>
             </div>
-            <hr className="hrline13" />
+            <hr className={styles.hrlin14} />
           </>
         ))}
       </Div>

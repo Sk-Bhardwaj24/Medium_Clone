@@ -40,7 +40,7 @@ const Main = styled.div`
 `;
 
 export default function ListOfStory() {
-  const [publ, setPubl] = React.useState("Pablished");
+  const [publ, setPubl] = React.useState("Published");
 
   const handelRes = () => {
     setPubl("Responses");
@@ -48,17 +48,17 @@ export default function ListOfStory() {
   const handleDrafts = () => {
     setPubl("Drafts");
   };
-  const handlePablished = () => {
-    setPubl("Pablished");
+  const handlePublished = () => {
+    setPubl("Published");
   };
 
   return (
     <>
       <Main color={publ}>
         <div className="main1">
-          <div onClick={handlePablished} className="pblis" color={publ}>
+          <div onClick={handlePublished} className="pblis" color={publ}>
             {/* <a href="#"  > */}
-            Pablished
+            Published
             {/* </a> */}
           </div>
           <div onClick={handelRes} className="resp">
@@ -70,7 +70,7 @@ export default function ListOfStory() {
         </div>
 
         <div>
-          {publ === "Pablished" ? (
+          {publ === "Published" ? (
             <Published />
           ) : publ === "Responses" ? (
             <Responses />

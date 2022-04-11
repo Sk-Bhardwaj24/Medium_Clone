@@ -3,7 +3,8 @@ import { GrAdd } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import { getBlog } from "../../Redux/blogre/action";
 import styled from "styled-components";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import TextareaAutosize from "@mui/base/TextareaAutosize";
 
 const Div = styled.div`
   /* padding:60px 400px 0px 400px; */
@@ -43,7 +44,8 @@ const Div = styled.div`
     font-size: 30px;
     border: none;
     padding: 20px;
-    width: 30em;
+    width: 25em;
+    overflow-x: hidden;
   }
 
   .writeInput:focus {
@@ -149,12 +151,29 @@ export default function WriteBlog() {
           />
         </div>
         <div className="writeFormGroup">
-          <input
+          {/* <textarea
             type="text"
             placeholder="Tell your story"
             className="writeInput writeText"
             autoFocus={true}
             name="story"
+            // rows="4"
+            cols="50"
+            onChange={handelBlog}
+            value={story}
+          ></textarea> */}
+          <TextareaAutosize
+            aria-label="minimum height"
+            minRows={8}
+            // placeholder="Minimum 3 rows"
+            style={{ width: 700 }}
+            type="text"
+            placeholder="Tell your story"
+            className="writeInput writeText"
+            autoFocus={true}
+            name="story"
+            // rows="4"
+            // cols="50"
             onChange={handelBlog}
             value={story}
           />
