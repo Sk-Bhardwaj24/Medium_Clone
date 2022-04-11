@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Landingpage } from "./Components/Landingpage/Landingpage";
 import Navbar from "./Components/Navbar/Navbar";
 import OurStorymain from "./Components/OurStoryPage/OurStorymain";
@@ -19,12 +19,12 @@ import Navbar2 from "./LoginComp/Navbar2";
 import YourStory from "./AfterLogIn/BlogWrite/YourStory";
 import Notifications from "./LoginComp/Notifications";
 import { List } from "./LoginComp/List";
-import { loadData, saveData } from "./Localstorage";
+import { loadData } from "./Localstorage";
 import { isAuthorized } from "./Redux/IsAuth/action";
 import { Home } from "./AfterLogIn/Home.jsx";
 const Div = styled.div`
-  /* display: ${(props) => (props.Data ? "flex" : "block")};
-  justify-content: ${(props) => (props.Data ? "space-between" : "null")}; */
+  display: ${(props) => (props.Data ? "flex" : "block")};
+  justify-content: ${(props) => (props.Data ? "space-between" : "null")};
 `;
 const App = () => {
   const dispatch = useDispatch();
@@ -33,11 +33,11 @@ const App = () => {
     dispatch(isAuthorized(true));
   } else {
     dispatch(isAuthorized(false));
-    console.log("hallo");
+    // console.log("hallo");
   }
   let Data = useSelector((store) => store.IsAuth.IsAuth);
   // Data = true;
-  console.log(Data);
+  // console.log(Data);
   return (
     <>
       {Data ? (
@@ -59,7 +59,7 @@ const App = () => {
         <>
           <Navbar />
           <Routes>
-            <Route exact path="/" element={<Landingpage />} />
+            <Route path="/" element={<Landingpage />} />
             <Route path="/ourStory" element={<OurStorymain />} />
             <Route path="/memberShip" element={<Membership />} />
             <Route path="/write" element={<Write />} />

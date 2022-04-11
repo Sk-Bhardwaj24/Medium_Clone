@@ -74,7 +74,7 @@ const SideBar = () => {
         margimLeft: "auto",
         flexDirection: "column",
         alignItems: "center",
-        minHeight: "100vh;",
+        minHeight: "100vh",
         overflowY: "scroll",
         backgroundColor: "white",
       }}
