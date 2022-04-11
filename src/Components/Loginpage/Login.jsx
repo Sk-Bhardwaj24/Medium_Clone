@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/Login.module.css";
 import { GoogleLogin } from "react-google-login";
 import { useDispatch, useSelector } from "react-redux";
-import { isAuthorized } from "../../Redux/IsAuth/action.js";
+// import { isAuthorized } from "../../Redux/IsAuth/action.js";
 import { saveData, loadData } from "../../Localstorage";
 import { useNavigate } from "react-router-dom";
 
@@ -64,7 +64,8 @@ export const Login = () => {
         </div>
         <div className={styles.login4}>
           <GoogleLogin
-            clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
+            // clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
+            clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
             render={(renderProps) => (
               <>
                 <div

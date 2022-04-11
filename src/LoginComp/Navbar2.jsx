@@ -1,12 +1,12 @@
 import React from "react";
 import "./Navbar.Module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { isAuthorized } from "../Redux/IsAuth/action";
 import { Link, Navigate } from "react-router-dom";
-import { ImHome } from "react-icons/im";
-import { VscBell } from "react-icons/vsc";
-import { BsBookmarks, BsPencilSquare } from "react-icons/bs";
-import { CgNotes } from "react-icons/cg";
+// import { ImHome } from "react-icons/im";
+// import { VscBell } from "react-icons/vsc";
+// import { BsBookmarks, BsPencilSquare } from "react-icons/bs";
+// import { CgNotes } from "react-icons/cg";
 // import styled from "styled-components";
 
 // const Nav2Link=styled(Link)`
@@ -21,8 +21,10 @@ const Dropupdiv = styled.div`
   height: 68vh;
   background-color: white;
   /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   position: absolute;
   font-size: 14px;
   bottom: 50px;
@@ -31,13 +33,13 @@ const Dropupdiv = styled.div`
   padding: 10px;
   display: ${(props) => props.display};
 `;
-const StylLink = styled(Link)`
-  text-decoration: none;
-  color: black;
-  font-weight: 12px;
-  font-size: 12px;
-  z-index: 1000;
-`;
+// const StylLink = styled(Link)`
+//   text-decoration: none;
+//   color: black;
+//   font-weight: 12px;
+//   font-size: 12px;
+//   z-index: 1000;
+// `;
 const P = styled.p`
   text-decoration: none;
   color: black;
@@ -101,7 +103,7 @@ const Navbar2 = () => {
                     viewBox="0 0 24 24"
                     fill="none"
                     className="icons"
-                    ariaLabel="Home"
+                    aria-label="Home"
                   >
                     <path
                       d="M4.5 10.75v10.5c0 .14.11.25.25.25h5c.14 0 .25-.11.25-.25v-5.5c0-.14.11-.25.25-.25h3.5c.14 0 .25.11.25.25v5.5c0 .14.11.25.25.25h5c.14 0 .25-.11.25-.25v-10.5M22 9l-9.1-6.83a1.5 1.5 0 0 0-1.8 0L2 9"
@@ -123,7 +125,7 @@ const Navbar2 = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   className="icons"
-                  ariaLabel="Notifications"
+                  aria-label="Notifications"
                 >
                   <path
                     d="M15 18.5a3 3 0 1 1-6 0"
@@ -147,7 +149,7 @@ const Navbar2 = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   className="icons"
-                  ariaLabel="Lists"
+                  aria-label="Lists"
                 >
                   <path
                     d="M4.5 6.25V21c0 .2.24.32.4.2l5.45-4.09a.25.25 0 0 1 .3 0l5.45 4.09c.16.12.4 0 .4-.2V6.25a.25.25 0 0 0-.25-.25H4.75a.25.25 0 0 0-.25.25z"
@@ -172,7 +174,7 @@ const Navbar2 = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   className="icons"
-                  ariaLabel="Stories"
+                  aria-label="Stories"
                 >
                   <path
                     d="M4.75 21.5h14.5c.14 0 .25-.11.25-.25V2.75a.25.25 0 0 0-.25-.25H4.75a.25.25 0 0 0-.25.25v18.5c0 .14.11.25.25.25z"
@@ -204,7 +206,7 @@ const Navbar2 = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   className="icons"
-                  ariaLabel="Write"
+                  aria-label="Write"
                 >
                   <path
                     d="M14 4a.5.5 0 0 0 0-1v1zm7 6a.5.5 0 0 0-1 0h1zm-7-7H4v1h10V3zM3 4v16h1V4H3zm1 17h16v-1H4v1zm17-1V10h-1v10h1zm-1 1a1 1 0 0 0 1-1h-1v1zM3 20a1 1 0 0 0 1 1v-1H3zM4 3a1 1 0 0 0-1 1h1V3z"

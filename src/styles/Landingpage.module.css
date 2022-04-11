@@ -295,6 +295,16 @@
   box-sizing: border-box;
   margin-bottom: 65px;
 }
+.ll2h {
+  margin-left: 40px;
+  /* margin-top: -20px; */
+  display: grid;
+
+  grid-template-columns: 70% 30%;
+  width: 100%;
+  box-sizing: border-box;
+  /* margin-bottom: 65px; */
+}
 .ll3 {
   display: flex;
   flex-direction: column;
@@ -357,6 +367,20 @@
   padding-right: 20px;
   padding-top: 20px;
 }
+.ll8h {
+  padding-left: 20px;
+  padding-right: 20px;
+  /* padding-top: 20px; */
+}
+.ll8h > img {
+  width: 28vh;
+  height: 20vh;
+  max-height: 180px;
+  object-fit: contain;
+  /* background-image: url(https://bitsofco.de/content/images/2018/12/broken-1.png); */
+  /* background-position: -10px -20px; */
+  background-size: cover;
+}
 .ll8 > img {
   width: 28vh;
   height: 20vh;
@@ -383,6 +407,18 @@
 .ll721 {
   margin-left: 10px;
   cursor: pointer;
+}
+.hrlin13 {
+  width: 40vw;
+  margin: 25px 1vw;
+  width: 45vw;
+  color: black;
+  /* margin-bottom: 10px; */
+}
+.hrli13 {
+  width: 40vw;
+  margin-left: 4vw;
+  margin-bottom: 40px;
 }
 /* ***************************************88 */
 @media only screen and (min-width: 1080px) {

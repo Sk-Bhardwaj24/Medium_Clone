@@ -8,41 +8,44 @@ export const Landingleft = () => {
   // let api1 = "eab0fd7b29ce4560a915d616621a2335";
   // let api1 = "5a917577b74147bbbf783b3f25e3807b";
   // let api1 = "2b3d6c4953fa44b981adeaf0ac881a6a";
-  let api1 = "53c46429084244a89a858e42c3cce991";
+  // let api1 = "53c46429084244a89a858e42c3cce991";
   // console.log(ldata);
   // console.log(adata);
+
   React.useEffect(() => {
     fetch(
-      `http://api.mediastack.com/v1/news?access_key=4038b8fb0e6180d901d2109a989dd19c&limit=100&languages=en`
+      // `http://api.mediastack.com/v1/news?access_key=4038b8fb0e6180d901d2109a989dd19c&limit=100&languages=en`
+      `https://skbhardwaj.herokuapp.com/Mediastack`
     )
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        setLdata(res.data);
+
+        setLdata(res);
       })
       .catch((err) => console.log(err));
-    // fetch(
-    //   `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${api1}`
-    // )
-    //   .then((res) => res.json())
-    //   .then((res) => {
-    //     console.log(res);
-    //     setAdata(res.articles);
-    //   });
-    // console.log(adata);
-    // fetch(` https://newsapi.org/v2/everything?q=bitcoin&apiKey=${api1}`)
-    //   .then((res) => res.json())
-    //   .then((res) => setAdata([...adata, ...res.articles]));
 
-    // fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${api1}`)
-    //   .then((res) => res.json())
-    //   .then((res) => setAdata([...adata, ...res.articles]));
-    // fetch(
-    //   `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${api1}`
-    // )
-    //   .then((res) => res.json())
-    //   .then((res) => setAdata([...adata, ...res.articles]));
-    console.log("hallo");
+    fetch(`https://skbhardwaj.herokuapp.com/newsapi`)
+      // `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${api1}`
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        setAdata(res);
+      });
+    //   console.log(adata);
+    //   fetch(` https://newsapi.org/v2/everything?q=bitcoin&apiKey=${api1}`)
+    //     .then((res) => res.json())
+    //     .then((res) => setAdata([...adata, ...res.articles]));
+
+    //   fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${api1}`)
+    //     .then((res) => res.json())
+    //     .then((res) => setAdata([...adata, ...res.articles]));
+    //   fetch(
+    //     `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${api1}`
+    //   )
+    //     .then((res) => res.json())
+    //     .then((res) => setAdata([...adata, ...res.articles]));
+    //   console.log("hallo");
   }, []);
 
   return (
@@ -109,7 +112,7 @@ export const Landingleft = () => {
           </div>
         )
       )}
-      {/* {adata.map((eblog, idx) => (
+      {adata.map((eblog, idx) => (
         <div key={idx} className={styles.ll2}>
           <div className={styles.ll3}>
             <div className={styles.ll4}>
@@ -168,7 +171,7 @@ export const Landingleft = () => {
             <img src={eblog.urlToImage} alt="" />
           </div>
         </div>
-      ))} */}
+      ))}
     </div>
   );
 };
