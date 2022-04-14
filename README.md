@@ -24,9 +24,6 @@
      <h4>We can read the articles posted by different user.</h4>
      <h4>We can see the trending articles.</h4>
      <h4>We are using JSON server for fatching Data</h4>
-     
-     &nbsp;
-     &nbsp;
 
  <img src="./Readmeimg/Landing.png" width="100%"/>
 <hr style="border:4px solid gray" > </hr>
@@ -36,12 +33,28 @@
     <h4>User can see Trending Author.</h4>
       <img src="./Readmeimg/our1.png" width="100%"/>
       <img src="./Readmeimg/our2.png" width="100%"/>
-<li>Membership</li>
-    User can know more about medium and it's membership
-    Accordian
-      <img src="./Readmeimg/mem1.png" width="100%"/>
+<h2 align="center">Membership</h2>
+   <h4> User can know more about medium and it's membership</h4>
 
-<li>Membership</li>
+  <img src="./Readmeimg/mem1.png" width="100%"/>
+
+<h2 align="center">Write</h2>
+    <h4>User can know how to start writing</h4>
+    <h4> Accordian</h4>
+    <img src="./Readmeimg/wr1.png" width="100%"/>
+     <img src="./Readmeimg/wr2.png" width="100%"/>
+     
+<h2 align="center">Login</h2>
+    <h4>User can do login here by gmail</h4>
+    <h4> We have used Google OAuth</h4>
+    <img src="./Readmeimg/sign1.png" width="100%"/>
+
+<h2 align="center">Register</h2>
+    <h4>User can register from here by providing email</h4>
+   
+  <img src="./Readmeimg/reg.png" width="100%"/>
+    
+    
 Date(4/04)
 
 - Create ourstroy page
