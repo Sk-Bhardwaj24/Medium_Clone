@@ -33,36 +33,62 @@
     <h4>User can see Trending Author.</h4>
       <img src="./Readmeimg/our1.png" width="100%"/>
       <img src="./Readmeimg/our2.png" width="100%"/>
+      <hr style="border:4px solid gray" > </hr>
 <h2 align="center">Membership</h2>
    <h4> User can know more about medium and it's membership</h4>
 
   <img src="./Readmeimg/mem1.png" width="100%"/>
+  <hr style="border:4px solid gray" > </hr>
 
 <h2 align="center">Write</h2>
     <h4>User can know how to start writing</h4>
     <h4> Accordian</h4>
     <img src="./Readmeimg/wr1.png" width="100%"/>
      <img src="./Readmeimg/wr2.png" width="100%"/>
+     <hr style="border:4px solid gray" > </hr>
      
 <h2 align="center">Login</h2>
     <h4>User can do login here by gmail</h4>
     <h4> We have used Google OAuth</h4>
     <img src="./Readmeimg/sign1.png" width="100%"/>
+    <hr style="border:4px solid gray" > </hr>
 
 <h2 align="center">Register</h2>
     <h4>User can register from here by providing email</h4>
    
   <img src="./Readmeimg/reg.png" width="100%"/>
+  <hr style="border:4px solid gray" > </hr>
+  
+<h2 align="center">Homepage</h2>
+    <h4>After Login user will directed to HomePage whey they can read the articles</h4>
+   
+  <img src="./Readmeimg/Homepage.png" width="100%"/>
+    <hr style="border:4px solid gray" > </hr>
+     
+<h2 align="center">Notification</h2>
+    <h4>User can get Notification</h4>
+   
+  <img src="./Readmeimg/Notification.png" width="100%"/>
+    <hr style="border:4px solid gray" > </hr>
     
-    
-Date(4/04)
+     
+<h2 align="center">Publish</h2>
+    <h4>You can publish the articles from here</h4>
+    <h4>Again we used JSON server for storing the data</h4>
+   
+  <img src="./Readmeimg/publish.png" width="100%"/>
+    <hr style="border:4px solid gray" > </hr>
 
-- Create ourstroy page
-- install styled-components
-- npm install --save styled-components
-- npm install react-icons --save
-- json-server db.json --port 3001
-- json-server --wathc db.json --port 3001
-  npm i @chakra-ui/icons
-  chackra ui
-  npm install @mui/base
+<h2 align="center">Your stories</h2>
+    <h4>You can view all the articles you had published</h4>
+    <h4>Also you can delete the article if you want</h4>
+   
+  <img src="./Readmeimg/PL.png" width="100%"/>
+    <hr style="border:4px solid gray" > </hr>
+        
+<h2 align="center">Logout</h2>
+    <h4>Finally user can Logout </h4>
+    <h4>After doing Logout user will redirected to LandingPage</h4>
+   
+  <img src="./Readmeimg/Logout.png" width="100%"/>
+    <hr style="border:4px solid gray" > </hr>
