@@ -14,7 +14,7 @@
 <hr style="border:4px solid gray" > </hr>
 <h1>Tech Stack </h1>
 <ul color="blue">
-<li>Front-end:HTML,CSS,REACT</li>
+<li>Front-end:HTML,CSS,REACT & Redux</li>
 <li>JSON Server</li>
 <li>Resources used in this project:Material Icons, Chakra UI</li>
 </ul>
