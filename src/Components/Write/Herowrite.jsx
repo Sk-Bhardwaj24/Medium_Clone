@@ -21,25 +21,25 @@ const Orangediv = styled(Bluediv)`
   border-bottom: 1px solid black;
 `;
 const HeadingCustom1 = styled.h1`
-margin-top: 0px;
-    margin-bottom: 120px;
-    font-family: 'Gt super text book', Georgia, sans-serif;
-    color: rgb(0 0 0);
-    font-size: 7.3vw;
-    line-height: 100%;
-    font-weight: 400;
-    letter-spacing: -0.35vw;
-}`;
+  margin-top: 0px;
+  margin-bottom: 120px;
+  font-family: "Gt super text book", Georgia, sans-serif;
+  color: rgb(0 0 0);
+  font-size: 7.3vw;
+  line-height: 100%;
+  font-weight: 400;
+  letter-spacing: -0.35vw;
+`;
 const Para1 = styled.p`
-margin-bottom: 0px;
-font-family: 'Soehne web buch', sans-serif;
-color: rgb(0 0 0);
-font-size: 18px;
-line-height: 127%;
-font-weight: 400;
-}`;
+  margin-bottom: 0px;
+  font-family: "Soehne web buch", sans-serif;
+  color: rgb(0 0 0);
+  font-size: 18px;
+  line-height: 127%;
+  font-weight: 400;
+`;
 const AccessButton1 = styled.button`
-font-family: "Soehne web buch", sans-serif;
+  font-family: "Soehne web buch", sans-serif;
   background: #fff;
   font-size: 22px;
   line-height: 100%;
@@ -54,10 +54,12 @@ font-family: "Soehne web buch", sans-serif;
   border-radius: 20px;
   margin-top: 2%;
   &:hover {
-    background: transparent;`;
+    background: transparent;
+  }
+`;
 
 export const Herowrite = () => {
-  console.log("hallo");
+  // console.log("hallo");
 
   return (
     <div className="main-write-box">

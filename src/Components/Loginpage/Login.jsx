@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "../../styles/Login.module.css";
 import { GoogleLogin } from "react-google-login";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 // import { isAuthorized } from "../../Redux/IsAuth/action.js";
 import { saveData, loadData } from "../../Localstorage";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  // const [loginData, setLoginData] = React.useState("");
+
   if (loadData("user") === null) {
     saveData("user", []);
   }
@@ -17,28 +19,56 @@ export const Login = () => {
 
   const navigate = useNavigate();
 
-  let AuthDetails = useSelector((state) => state.IsAuth);
-  console.log(AuthDetails);
-  const dispatch = useDispatch();
+  // let AuthDetails = useSelector((state) => state.IsAuth);
+  // console.log(AuthDetails);
+  // const dispatch = useDispatch();
   const onLoginsucces = (res) => {
-    let user = loadData("user");
+    var dr = res.profileObj;
+    fetch(`https://mediumserver.herokuapp.com/auth/signIn`, {
+      method: "POST",
+      body: JSON.stringify(dr),
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // setRegister(res);
+        // console.log(res);
+        // uptdateRedux();
+        // (res === false) ? alert("Register First") : null;
+        verify(res);
+      });
 
-    let userDetails = loadData("userDetails");
-    // (navigate("/loading"),
-    let i = 1;
-    user.map((eachuser) =>
-      eachuser === res.profileObj.email
-        ? // dispatch(isAuthorized(true)),
-          (i === 1 ? alert("sucessfull") : console.log("something"),
-          i++,
-          userDetails.push(res.profileObj),
-          saveData("userDetails", userDetails),
-          navigate("/loading"))
-        : console.log("hallo")
-    );
+    // let user = loadData("user");
 
-    if (i === 1) {
+    // let userDetails = loadData("userDetails");
+    // // (navigate("/loading"),
+    // let i = 1;
+    // user.map((eachuser) =>
+    //   eachuser === res.profileObj.email
+    //     ? // dispatch(isAuthorized(true)),
+    //       (i === 1 ? alert("sucessfull") : null,
+    //       i++,
+    //       userDetails.push(res.profileObj),
+    //       saveData("userDetails", userDetails),
+    //       navigate("/loading"))
+    //     : console.log("hallo")
+    // );
+
+    // if (i === 1) {
+    //   alert("Register First");
+    // }
+  };
+  const verify = (res) => {
+    if (res === false) {
       alert("Register First");
+      return;
+    } else {
+      let userDetails = loadData("userDetails");
+      userDetails.push(res);
+      saveData("userDetails", userDetails);
+      navigate("/loading");
     }
   };
   const onFailuresucces = (res) => {
@@ -50,7 +80,7 @@ export const Login = () => {
   const closesign = () => {
     navigate("/");
   };
-  console.log(AuthDetails, "authdetails");
+  // console.log(AuthDetails, "authdetails");
   return (
     <div className={styles.login1}>
       <div className={styles.login2}>

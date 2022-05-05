@@ -1,11 +1,12 @@
 import React from "react";
 import { GrAdd } from "react-icons/gr";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getBlog } from "../../Redux/blogre/action";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
-
+import { loadData } from "../../Localstorage.js";
+import { Loading2 } from "../../Components/Loading2";
 const Div = styled.div`
   /* padding:60px 400px 0px 400px; */
   padding-top: 50px;
@@ -69,16 +70,25 @@ const Div = styled.div`
   }
   /* padding-top:50px; */
 `;
+const Di = styled.div`
+  position: absolute;
+  margin-right: 400px !important;
+  /* margin-left: -25vw; */
+  /* margin: auto; */
+`;
+
 export default function WriteBlog() {
   const [blog, setBlog] = React.useState({
     fileUpload: "",
     title: "",
     story: "",
   });
-
+  const [isloading, setIsloading] = React.useState(false);
+  const curuser = loadData("userDetails");
+  const useremail = curuser[0][0].email;
   const dispatch = useDispatch();
-  const blog1 = useSelector((store) => store);
-  console.log(blog1);
+  // const blog1 = useSelector((store) => store);
+  // console.log(blog1);
   const navigate = useNavigate();
   const handelBlog = (e) => {
     // console.log(e.target.value)
@@ -92,7 +102,7 @@ export default function WriteBlog() {
   // update Redux
 
   const uptdateRedux = () => {
-    fetch(`https://skbhardwaj.herokuapp.com/Blogs`)
+    fetch(`https://mediumserver.herokuapp.com/blog/getBlog/${useremail}`)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
@@ -102,20 +112,30 @@ export default function WriteBlog() {
   };
 
   const handleSubmit = (e) => {
+    setIsloading(true);
+    // console.log(blog);
+    let payload = {
+      ...blog,
+      userEmail: `${useremail}`,
+    };
     e.preventDefault();
-    fetch(`https://skbhardwaj.herokuapp.com/Blogs`, {
+    fetch(`https://mediumserver.herokuapp.com/blog/post`, {
       method: "POST",
-      body: JSON.stringify(blog),
+      body: JSON.stringify(payload),
       headers: {
         "content-type": "application/json",
       },
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         uptdateRedux();
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsloading(false);
+        navigate("/publish");
       });
-    navigate("/publish");
     // <Navigate to="/publish" />;
     setBlog({
       fileUpload: "",
@@ -124,7 +144,11 @@ export default function WriteBlog() {
     });
   };
   const { fileUpload, title, story } = blog;
-  return (
+  return isloading ? (
+    <Di>
+      <Loading2 />
+    </Di>
+  ) : (
     <Div>
       <form className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroup">

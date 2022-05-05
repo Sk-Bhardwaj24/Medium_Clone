@@ -53,12 +53,13 @@ const Navbar2 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const curuser = loadData("userDetails");
+  // console.log(curuser[0][0]);
   if (curuser === null || curuser.length === 0) {
     <Navigate to="/" />;
   }
-  const userimage = curuser[0].imageUrl;
-  const useremail = curuser[0].email;
-  const name = curuser[0].name;
+  const userimage = curuser[0][0].imageUrl;
+  const useremail = curuser[0][0].email;
+  const name = curuser[0][0].name;
 
   const handleToggle = () => {
     if (display === "none") {

@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "../../styles/Loading.module.css";
 import { useNavigate } from "react-router-dom";
-import AfterLogincomp from "../../LoginComp/AfterLogincomp";
-import { useDispatch, useSelector } from "react-redux";
+// import AfterLogincomp from "../../LoginComp/AfterLogincomp";
+import { useDispatch } from "react-redux";
 import { isAuthorized } from "../../Redux/IsAuth/action";
 export const Loading = () => {
   const navigate = useNavigate();
-  const AuthDetails = useSelector((state) => state.IsAuth);
+  // const AuthDetails = useSelector((state) => state.IsAuth);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      console.log("This will run after 1 second!");
+      // console.log("This will run after 1 second!");
       dispatch(isAuthorized(true));
       navigate("/Home");
     }, 5000);

@@ -75,7 +75,7 @@ const SideBar = () => {
         flexDirection: "column",
         alignItems: "center",
         minHeight: "100vh",
-        overflowY: "scroll",
+        // overflowY: "scroll",
         backgroundColor: "white",
       }}
     >
@@ -95,9 +95,10 @@ const SideBar = () => {
           marginTop: "10px",
         }}
       >
-        {users.map((el) => {
+        {users.map((el, idx) => {
           return (
             <a
+              key={idx}
               href={el.link}
               style={{
                 textDecoration: "none",
@@ -220,8 +221,8 @@ const SideBar = () => {
             marginTop: "10%",
           }}
         >
-          {topics.map((el) => {
-            return <Topicbtn>{el}</Topicbtn>;
+          {topics.map((el, idx) => {
+            return <Topicbtn key={idx}>{el}</Topicbtn>;
           })}
         </div>
         <h4

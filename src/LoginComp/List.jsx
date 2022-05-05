@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "./List.Module.css";
 import Saved from "./Saved";
 import Highlight from "./Highlight";
-import { Margin } from "@mui/icons-material";
+
 const Listbtn = styled.button`
   background: rgb(26, 137, 23);
   padding: 7px 20px 9px;
@@ -56,7 +56,7 @@ export const List = () => {
     }
   };
   const handleModal = () => {
-    if (modal == "none") {
+    if (modal === "none") {
       setmodal("block");
     } else {
       setmodal("none");
@@ -64,6 +64,11 @@ export const List = () => {
   };
   const [isSaved, setisSaved] = React.useState(true);
   const [modal, setmodal] = React.useState("none");
+  const [data, setData] = React.useState("");
+  const handleChange = (e) => {
+    setData(e.target.value);
+    console.log(data);
+  };
   return (
     <div
       style={{
@@ -89,7 +94,7 @@ export const List = () => {
               saved
             </Navlink>
           </a>
-          <a>
+          <a href="#">
             <Navlink2 onClick={handlelisthighlight} saved={isSaved}>
               highlights
             </Navlink2>
@@ -112,13 +117,14 @@ export const List = () => {
             flexDirection: "column",
             alignItems: "center",
             top: "115px",
-            zIndex:"2000"
+            zIndex: "2000",
           }}
         >
           <h1>Create new list</h1>
           <input
             type="text"
             value=""
+            onChange={handleChange}
             placeholder="Give it a name"
             style={{
               width: "300px",
@@ -128,14 +134,15 @@ export const List = () => {
               marginTop: "5%",
             }}
           />
-          <a
+          <h5
+            href="#"
             style={{
               color: "rgba(26, 137, 23, 1)",
               marginTop: "5%",
             }}
           >
             Add description
-          </a>
+          </h5>
           <div style={{ marginTop: "10%" }}>
             <Listbtn>Create</Listbtn>
           </div>

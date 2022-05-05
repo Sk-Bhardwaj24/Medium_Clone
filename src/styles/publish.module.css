@@ -1,6 +1,6 @@
 .ap1 {
   /* margin: auto; */
-  max-width: 800px;
+  /* max-width: 800px; */
   /* max-width: 20vw; */
   justify-items: center;
   /* margin: auto; */
@@ -13,6 +13,11 @@
   margin: auto;
   position: absolute;
   margin-left: 16vw;
+  overflow-wrap: break-word;
+  z-index: -1;
+}
+.pm22 {
+  max-width: 45em;
 }
 .ap2 {
   display: flex;
@@ -55,15 +60,27 @@
   /* border: 1px solid red; */
   box-sizing: border-box;
   margin-bottom: 20px;
-  display: flex;
+  /* display: flex; */
+  max-width: 40vw;
+  /* position: absolute; */
+
   flex-direction: column;
   flex-wrap: wrap;
+}
+.ap61 {
+  margin-right: 800px;
+  display: flex;
 }
 .ap61 > h1 {
   color: black;
   margin-bottom: 25px;
   font-size: 30px;
   font-weight: 600;
+}
+.ap62 {
+  max-width: 100%;
+  flex-wrap: wrap;
+  /* margin-right: 700px; */
 }
 .ap62 > p {
   color: black;

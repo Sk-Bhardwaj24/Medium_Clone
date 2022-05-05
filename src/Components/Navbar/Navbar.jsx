@@ -79,7 +79,7 @@ const StyledLinklast = styled(Link)`
 export default function Navbar() {
   // ******************REDUX**********************
   const dispatch = useDispatch();
-
+  const componentMounted = React.useRef(true);
   const [color, setNavBg] = React.useState("white");
   const [newcolor, setNewcolor] = React.useState("white");
 
@@ -129,6 +129,10 @@ export default function Navbar() {
       dispatch(setDisplay(true));
       setNewcolor("white");
     }
+    return () => {
+      // This code runs when component is unmounted
+      componentMounted.current = false; // (4) set it to false when we leave the page
+    };
   }, [location]);
   const { vis } = useSelector((state) => state.vis);
 

@@ -1,10 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getBlog } from "../../Redux/blogre/action";
 import styled from "styled-components";
-import { AiFillDelete } from "react-icons/ai";
+// import { AiFillDelete } from "react-icons/ai";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Loading2 } from "../../Components/Loading2";
+import { loadData } from "../../Localstorage.js";
 const Div = styled.div`
   margin-right: 0px;
   width: 48.5vw;
@@ -21,6 +22,7 @@ const Div = styled.div`
   .borderDiv {
     margin-top: 20px;
     border-bottom: 1px solid rgba(117, 117, 117, 1);
+    overflow-wrap: break-word;
   }
   .oneMore {
     color: rgba(117, 117, 117, 1);
@@ -53,10 +55,9 @@ const Div = styled.div`
     border-radius: 3px;
     /* box-shadow: 5px 10px; */
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: ${(props) => (props.display === false ? "block" : "none")};
+    display: ${(props) => (props.display === "false" ? "block" : "none")};
   }
-
-  ul {
+  ś ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -106,14 +107,17 @@ const Di = styled.div`
 
 export default function Published() {
   const [storeData, setStore] = React.useState([]);
+  const componentMounted = React.useRef(true);
   const dispatch = useDispatch();
-  const blogData = useSelector((store) => store.bologData);
-  const [display, setDisplay] = React.useState(true);
+  // const blogData = useSelector((store) => store.bologData);
+  // const [display, setDisplay] = React.useState(true);
 
   const [isloading, setIsloading] = React.useState(true);
   // console.log(blogData);
+  const curuser = loadData("userDetails");
+  const useremail = curuser[0][0].email;
   const getJsonData = () => {
-    fetch(`https://skbhardwaj.herokuapp.com/Blogs`)
+    fetch(`https://mediumserver.herokuapp.com/blog/getBlog/${useremail}`)
       .then((res) => res.json())
       .then((res) => {
         // console.log(res)
@@ -124,18 +128,10 @@ export default function Published() {
       .catch((err) => console.log(err))
       .finally(() => setIsloading(false));
   };
-  // const handleDelte = (id) => {
-  //   console.log("mrinal", id);
-  //   fetch(`https://skbhardwaj.herokuapp.com/Blogs/${id}`, {
-  //     method: "DELETE",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => getJsonData());
 
-  // };
   const handleDelte = (id) => {
     setIsloading(true);
-    fetch(`https://skbhardwaj.herokuapp.com/Blogs/${id}`, {
+    fetch(`https://mediumserver.herokuapp.com/blog/deleteBlog/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -145,6 +141,10 @@ export default function Published() {
   };
   React.useEffect(() => {
     getJsonData();
+    return () => {
+      // This code runs when component is unmounted
+      componentMounted.current = false; // (4) set it to false when we leave the page
+    };
   }, []);
 
   return isloading ? (
@@ -152,11 +152,11 @@ export default function Published() {
       <Loading2 />
     </Di>
   ) : (
-    <Div display={display}>
+    <Div display={true}>
       {storeData.map((item) => (
-        <div key={item.id} className="borderDiv">
+        <div key={item._id} className="borderDiv">
           <h3>{item.title}</h3>
-          {/* <button onClick={()=>handleDelte(item.id)}>Delete</button> */}
+
           <h3 className="oneMore">{item.story}</h3>
           <div className="logoDiv">
             <div className="svgh">
@@ -164,7 +164,7 @@ export default function Published() {
               <DeleteIcon
                 className="delete"
                 fontSize="large"
-                onClick={() => handleDelte(item.id)}
+                onClick={() => handleDelte(item._id)}
               />
               {/* </li>
               </ul> */}

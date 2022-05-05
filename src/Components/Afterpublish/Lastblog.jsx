@@ -5,6 +5,7 @@ import styles from "../../styles/publish.module.css";
 import { Loading2 } from "../Loading2";
 import styled from "styled-components";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { loadData } from "../../Localstorage.js";
 // import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 // import DeleteIcon from "@mui/icons-material/Delete";
 const Some1 = styled.div`
@@ -13,52 +14,73 @@ const Some1 = styled.div`
     width: 40px !important;
     color: red;
     position: relative;
-    margin-top: -200x;
+    margin-top: -250x;
     margin-left: 150px;
+    /* margin-right: 400px; */
   }
+
   .delete:hover {
     color: black;
   }
 `;
 const H1d = styled.h1`
   text-align: center;
-  margin-right: 40px;
+  margin-top: auto;
+  justify-content: center;
+  align-items: center;
+  /* margin-right: 400px; */
 `;
-
+const Some2 = styled.div`
+  color: read;
+  .delete {
+    width: 40px !important;
+    color: red;
+    position: relative;
+    margin-top: -250x;
+    margin-left: 10px;
+    margin-right: 500px;
+  }
+`;
 export const Lastblog = () => {
-  // let userDetails = loadData("userDetails");
   const [bdata, setBdata] = React.useState([]);
-  const [count, setCount] = React.useState("1");
+
   const [isloading, setIsloading] = React.useState(true);
   const [iserror, setIsError] = React.useState(false);
+  const componentMounted = React.useRef(true);
+  const curuser = loadData("userDetails");
+  const useremail = curuser[0][0].email;
   const getData = () => {
-    fetch(`https://skbhardwaj.herokuapp.com/Blogs`)
+    fetch(`https://mediumserver.herokuapp.com/blog/getBlog/${useremail}`)
       .then((res) => res.json())
       .then((res) => {
         setBdata(res);
         setIsError(false);
       })
-      .catch((err) => setIsError(true));
+      .catch((err) => setIsError(true))
+      .finally(() => setIsloading(false));
   };
-  const soln = () => {
-    setIsloading(false);
-    setCount(count + 1);
-  };
+  // const soln = () => {
+  //   setIsloading(false);
+  //   setCount(count + 1);
+  // };
 
-  setTimeout(() => {
-    soln();
-  }, 2000);
+  // setTimeout(() => {
+  //   soln();
+  // }, 2000);
 
   React.useEffect(() => {
     getData();
+    // console.log(bdata.length);
+    return () => {
+      // This code runs when component is unmounted
+      componentMounted.current = false; // (4) set it to false when we leave the page
+    };
   }, []);
-  // getData();
-  // console.log(bdata);
-  // };
-  getData();
+
   const handleDelete = (id) => {
     setIsloading(true);
-    fetch(`https://skbhardwaj.herokuapp.com/Blogs/${id}`, {
+    // http://localhost:9008/blog/deleteBlog/6272eb720c31808f09b04a6e
+    fetch(`https://mediumserver.herokuapp.com/blog/deleteBlog/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -222,13 +244,13 @@ export const Lastblog = () => {
                   ></path>
                  
                 </svg> */}
-                    <Some1>
+                    <Some2>
                       <DeleteIcon
                         className="delete"
                         fontSize="large"
-                        onClick={() => handleDelete(bdata[0].id)}
+                        onClick={() => handleDelete(bdata[0]._id)}
                       />
-                    </Some1>
+                    </Some2>
                   </div>
                 </div>
               </div>
@@ -238,7 +260,7 @@ export const Lastblog = () => {
             </div>
 
             {bdata.map((eachdata, idx) => (
-              <>
+              <div key={idx}>
                 {idx === 0 ? null : (
                   <>
                     <div className={styles.ap9} key={eachdata.id}>
@@ -266,7 +288,7 @@ export const Lastblog = () => {
                             <DeleteIcon
                               className="delete"
                               fontSize="large"
-                              onClick={() => handleDelete(eachdata.id)}
+                              onClick={() => handleDelete(eachdata._id)}
                             />
                           </Some1>
                         </div>
@@ -299,7 +321,7 @@ export const Lastblog = () => {
                     </div>
                   </>
                 )}
-              </>
+              </div>
             ))}
           </div>
         </>

@@ -3,26 +3,35 @@ import styles from "../../styles/Signup.module.css";
 import { GoogleLogin } from "react-google-login";
 
 // import { isAuthorized } from "../../Redux/IsAuth/action.js";
-import { saveData, loadData } from "../../Localstorage";
+// import { saveData, loadData } from "../../Localstorage";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setDisplay } from "../../Redux/Theme/action.js";
 
 export const Signup = () => {
-  if (loadData("user") === null) {
-    saveData("user", []);
-  }
-  if (loadData("useDetails") === null) {
-    saveData("userDetails", []);
-  }
+  // if (loadData("user") === null) {
+  //   saveData("user", []);
+  // }
+  // if (loadData("userDetails") === null) {
+  //   saveData("userDetails", []);
+  // }
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const onLoginsucces = (res) => {
-    let edata = res.profileObj.email;
-    let user = loadData("user");
-    user.push(edata);
-    saveData("user", user);
-    alert("Register succesfull");
+    var dr = res.profileObj;
+    fetch(`https://mediumserver.herokuapp.com/auth/signUp`, {
+      method: "POST",
+      body: JSON.stringify(dr),
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        res ? alert("Register succesfull") : alert("Already Register");
+        // uptdateRedux();
+      });
+
     dispatch(setDisplay(false));
     navigate("/logIn");
   };
@@ -35,7 +44,7 @@ export const Signup = () => {
   return (
     <div className={styles.sp1}>
       <div className={styles.sp2}>
-        <svg class="svgIcon-use" height="25" viewBox="0 0 3940 610">
+        <svg className="svgIcon-use" height="25" viewBox="0 0 3940 610">
           <path d="M594.79 308.2c0 163.76-131.85 296.52-294.5 296.52S5.8 472 5.8 308.2 137.65 11.69 300.29 11.69s294.5 132.75 294.5 296.51"></path>
           <path d="M917.86 308.2c0 154.16-65.93 279.12-147.25 279.12s-147.25-125-147.25-279.12S689.29 29.08 770.61 29.08s147.25 125 147.25 279.12"></path>
           <path d="M1050 308.2c0 138.12-23.19 250.08-51.79 250.08s-51.79-112-51.79-250.08 23.19-250.08 51.8-250.08S1050 170.09 1050 308.2"></path>
@@ -56,16 +65,16 @@ export const Signup = () => {
         <div className={styles.sp6}>
           {/* <div className={styles.sp61}></div> */}
           <GoogleLogin
-            // clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
-            clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
+            clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
+            // clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
             render={(renderProps) => (
               <div
                 className={styles.sp61}
                 onClick={renderProps.onClick}
                 // disabled={renderProps.disabled}
               >
-                <svg width="25" height="25" class="cp al">
-                  <g fill="none" fill-rule="evenodd">
+                <svg width="25" height="25" className="cp al">
+                  <g fill="none" fillRule="evenodd">
                     <path
                       d="M20.66 12.7c0-.61-.05-1.19-.15-1.74H12.5v3.28h4.58a3.91 3.91 0 0 1-1.7 2.57v2.13h2.74a8.27 8.27 0 0 0 2.54-6.24z"
                       fill="#4285F4"
@@ -93,16 +102,16 @@ export const Signup = () => {
             cookiePolicy={"single_host_origin"}
           />
           <div className={styles.sp61}>
-            <svg width="25" height="25" fill="#3B5998" class="cp al">
+            <svg width="25" height="25" fill="#3B5998" className="cp al">
               <path
                 d="M20.3 4H4.7a.7.7 0 0 0-.7.7v15.6c0 .38.32.7.7.7h8.33v-6.38h-2.12v-2.65h2.12V9.84c0-2.2 1.4-3.27 3.35-3.27.94 0 1.75.07 1.98.1v2.3H17c-1.06 0-1.31.5-1.31 1.24v1.76h2.65l-.53 2.65H15.7l.04 6.38h4.56a.7.7 0 0 0 .71-.7V4.7a.7.7 0 0 0-.7-.7"
-                fill-rule="evenodd"
+                fillRule="evenodd"
               ></path>
             </svg>
             <p>Sign up with Facebook</p>
           </div>
           <div className={styles.sp61}>
-            <svg width="25" height="25" class="co cp al">
+            <svg width="25" height="25" className="co cp al">
               <path d="M4 6v13h17V6H4zm5.9 7.97l2.6 2.12 2.6-2.12 4.14 4.02H5.76l4.15-4.02zm-4.88 3.32V9.97l4.1 3.35-4.1 3.97zm10.87-3.97l4.1-3.35v7.32l-4.1-3.97zm4.1-6.3v1.64l-7.49 6.12-7.48-6.13V7.01h14.96z"></path>
             </svg>
             <p>Sign up with email</p>
