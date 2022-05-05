@@ -65,8 +65,8 @@ export const Signup = () => {
         <div className={styles.sp6}>
           {/* <div className={styles.sp61}></div> */}
           <GoogleLogin
-            clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
-            // clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
+            // clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
+            clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
             render={(renderProps) => (
               <div
                 className={styles.sp61}
