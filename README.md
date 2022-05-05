@@ -15,7 +15,10 @@
 <h1>Tech Stack </h1>
 <ul color="blue">
 <li>Frontend:HTML,CSS,REACT & Redux</li>
-<li>Backend:MongoDb,Express.js & Node.js</li>
+<li>Backend:MongoDb,Express.js & Node.js
+<a href="https://github.com/Sk-Bhardwaj24/Medium_Clone_Server"  target="_blank">Backend repository</a>
+</li>
+
 <li>Resources used in this project:Material Icons, Chakra UI</li>
 </ul>
 <h1>Webpages along with its features</h1>
