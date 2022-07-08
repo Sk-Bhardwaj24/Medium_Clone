@@ -46,31 +46,11 @@ export const Login = () => {
       .then((res) => res.json())
       .then((res) => {
         // setRegister(res);
-        console.log(res);
+
         // uptdateRedux();
         // (res === false) ? alert("Register First") : null;
         verify(res);
       });
-
-    // let user = loadData("user");
-
-    // let userDetails = loadData("userDetails");
-    // // (navigate("/loading"),
-    // let i = 1;
-    // user.map((eachuser) =>
-    //   eachuser === res.profileObj.email
-    //     ? // dispatch(isAuthorized(true)),
-    //       (i === 1 ? alert("sucessfull") : null,
-    //       i++,
-    //       userDetails.push(res.profileObj),
-    //       saveData("userDetails", userDetails),
-    //       navigate("/loading"))
-    //     : console.log("hallo")
-    // );
-
-    // if (i === 1) {
-    //   alert("Register First");
-    // }
   };
   const verify = (res) => {
     if (res === false) {

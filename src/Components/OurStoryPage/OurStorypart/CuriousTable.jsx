@@ -206,8 +206,8 @@ export default function CuriousTable() {
           ))}
         </div>
         <div className="tri-col mid">
-          {Profile2.map((idx) => (
-            <div className="tri-col-item w-inline-block">
+          {Profile2.map((idx, id) => (
+            <div key={id * 5} className="tri-col-item w-inline-block">
               <div className="tri-col-logo">
                 <img src={idx.img} alt="" />
               </div>
@@ -219,8 +219,8 @@ export default function CuriousTable() {
         </div>
 
         <div className="tri-col right">
-          {Profile3.map((idx) => (
-            <div className="tri-col-item w-inline-block">
+          {Profile3.map((idx, id) => (
+            <div key={id * 8} className="tri-col-item w-inline-block">
               <div className="tri-col-logo">
                 <img src={idx.img} alt="#" />
               </div>
