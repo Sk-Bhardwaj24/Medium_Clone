@@ -13,7 +13,8 @@ export const Login = () => {
     function start() {
       gapi.client.init({
         clientId:
-          "386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com",
+          // "386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com",
+          "1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com",
         scope: "email",
       });
     }
@@ -86,8 +87,8 @@ export const Login = () => {
         </div>
         <div className={styles.login4}>
           <GoogleLogin
-            // clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
-            clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
+            clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
+            // clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
             render={(renderProps) => (
               <>
                 <div

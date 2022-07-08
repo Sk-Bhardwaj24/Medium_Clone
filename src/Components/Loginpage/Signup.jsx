@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Signup.module.css";
 import { GoogleLogin } from "react-google-login";
-
+import { gapi } from "gapi-script";
 // import { isAuthorized } from "../../Redux/IsAuth/action.js";
 // import { saveData, loadData } from "../../Localstorage";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +15,18 @@ export const Signup = () => {
   // if (loadData("userDetails") === null) {
   //   saveData("userDetails", []);
   // }
+  React.useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId:
+          "1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com",
+        // "386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com",
+        scope: "email",
+      });
+    }
+
+    gapi.load("client:auth2", start);
+  }, []);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const onLoginsucces = (res) => {
@@ -65,8 +77,8 @@ export const Signup = () => {
         <div className={styles.sp6}>
           {/* <div className={styles.sp61}></div> */}
           <GoogleLogin
-            // clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
-            clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
+            clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
+            // clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
             render={(renderProps) => (
               <div
                 className={styles.sp61}

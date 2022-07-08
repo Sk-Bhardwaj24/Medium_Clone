@@ -46,11 +46,11 @@ const App = ({ hideLoader }) => {
     dispatch(isAuthorized(false));
   }
   let Data = useSelector((store) => store.IsAuth.IsAuth);
-  // Data = true;
-  // console.log(Data);
+
   let url = window.location.pathname;
   if (Data) {
     if (
+      url === "/loading" ||
       url === "/list" ||
       url === "/home" ||
       url === "/WriteBlog" ||
@@ -74,6 +74,7 @@ const App = ({ hideLoader }) => {
               <Routes>
                 <Route path="/list" element={<List />} />
                 <Route path="/home" element={<Home />} />
+                <Route path="/loading" element={<Loading />} />
                 <Route path="/WriteBlog" element={<WriteBlog />} />
                 <Route path="/YourStory" element={<YourStory />} />
                 <Route path="/publish" element={<Lastblog />} />
