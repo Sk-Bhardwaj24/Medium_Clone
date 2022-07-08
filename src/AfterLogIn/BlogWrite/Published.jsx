@@ -55,7 +55,7 @@ const Div = styled.div`
     border-radius: 3px;
     /* box-shadow: 5px 10px; */
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: ${(props) => (props.display === "false" ? "block" : "none")};
+    display: ${(props) => (props.display === false ? "block" : "none")};
   }
   ś ul {
     list-style-type: none;
@@ -152,7 +152,7 @@ export default function Published() {
       <Loading2 />
     </Di>
   ) : (
-    <Div display={true}>
+    <Div display={"true"}>
       {storeData.map((item) => (
         <div key={item._id} className="borderDiv">
           <h3>{item.title}</h3>

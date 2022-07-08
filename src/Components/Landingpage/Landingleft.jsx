@@ -5,7 +5,6 @@ import ti1 from "../../styles/Image/t1.jpeg";
 export const Landingleft = () => {
   const [ldata, setLdata] = React.useState([]);
   const [adata, setAdata] = React.useState([]);
-  const componentMounted = React.useRef(true);
 
   React.useEffect(() => {
     let isSubcribed = true;

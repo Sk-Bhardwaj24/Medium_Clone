@@ -112,6 +112,10 @@ export default function Navbar() {
 
       setNavBg("rgb(242, 77, 46)");
       setNewcolor("rgb(242, 77, 46)");
+    } else if (location.pathname === "/ourStory") {
+      dispatch(setDisplay(true));
+      setNavBg("white");
+      setNewcolor("white");
     } else if (location.pathname === "/logIn") {
       dispatch(setDisplay(false));
     } else if (location.pathname === "/StartIn") {
@@ -126,7 +130,7 @@ export default function Navbar() {
       dispatch(setDisplay(false));
     } else {
       setNavBg("white");
-      dispatch(setDisplay(true));
+      dispatch(setDisplay(false));
       setNewcolor("white");
     }
     return () => {

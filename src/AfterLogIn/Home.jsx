@@ -69,14 +69,13 @@ export const Home = () => {
   const [ldata, setLdata] = React.useState([]);
   const [adata, setAdata] = React.useState([]);
   const [isloading, setIsLoading] = React.useState(true);
-  const componentMounted = React.useRef(true);
 
   React.useEffect(() => {
+    let isSubcribed = true;
     fetch(`https://mediumserver.herokuapp.com/bloglist/all`)
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
-        setLdata(res);
+        isSubcribed && setLdata(res);
       })
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
@@ -85,15 +84,14 @@ export const Home = () => {
 
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
-        setAdata(res);
+        isSubcribed && setAdata(res);
       })
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
 
     return () => {
       // This code runs when component is unmounted
-      componentMounted.current = false; // (4) set it to false when we leave the page
+      isSubcribed = false; // (4) set it to false when we leave the page
     };
   }, []);
 
