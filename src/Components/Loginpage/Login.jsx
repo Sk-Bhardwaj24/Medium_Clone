@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../styles/Login.module.css";
 import { GoogleLogin } from "react-google-login";
+import { gapi } from "gapi-script";
 // import { useDispatch, useSelector } from "react-redux";
 // import { isAuthorized } from "../../Redux/IsAuth/action.js";
 import { saveData, loadData } from "../../Localstorage";
@@ -8,6 +9,17 @@ import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   // const [loginData, setLoginData] = React.useState("");
+  React.useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId:
+          "386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com",
+        scope: "email",
+      });
+    }
+
+    gapi.load("client:auth2", start);
+  }, []);
 
   if (loadData("user") === null) {
     saveData("user", []);
@@ -34,7 +46,7 @@ export const Login = () => {
       .then((res) => res.json())
       .then((res) => {
         // setRegister(res);
-        // console.log(res);
+        console.log(res);
         // uptdateRedux();
         // (res === false) ? alert("Register First") : null;
         verify(res);
@@ -94,8 +106,8 @@ export const Login = () => {
         </div>
         <div className={styles.login4}>
           <GoogleLogin
-            // clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
-            clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
+            clientId="386944029756-6t000p41vm5g8qtif9m191abtejqa3ev.apps.googleusercontent.com"
+            // clientId="1065072377621-r3av9ka16g386uarnppccj4nkkvml1p2.apps.googleusercontent.com"
             render={(renderProps) => (
               <>
                 <div

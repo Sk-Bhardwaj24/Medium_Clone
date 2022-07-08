@@ -26,73 +26,64 @@ const Div = styled.div`
   display: ${(props) => (props.Data ? "flex" : "block")};
   justify-content: ${(props) => (props.Data ? "space-between" : "null")};
 `;
-const App = () => {
+const App = ({ hideLoader }) => {
+  const [loading, setloading] = React.useState(true);
+  React.useEffect(() => {
+    manageloading();
+  });
+  function manageloading() {
+    setTimeout(() => {
+      hideLoader();
+      setloading(false);
+    }, 300000);
+  }
   const dispatch = useDispatch();
 
   if (loadData("userDetails") != null && loadData("userDetails").length !== 0) {
     dispatch(isAuthorized(true));
   } else {
     dispatch(isAuthorized(false));
-    // console.log("hallo");
   }
   let Data = useSelector((store) => store.IsAuth.IsAuth);
   // Data = true;
   // console.log(Data);
   return (
     <>
-      {Data ? (
-        // <>
-        <Div Data={Data}>
-          <Navbar2 />
-
-          <Routes>
-            <Route path="/list" element={<List />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/WriteBlog" element={<WriteBlog />} />
-            <Route path="/YourStory" element={<YourStory />} />
-            <Route path="/publish" element={<Lastblog />} />
-            <Route path="/Notifications" element={<Notifications />} />
-          </Routes>
-          <SideBar />
-        </Div>
-      ) : (
+      {loading === false ? (
         <>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Landingpage />} />
-            <Route path="/ourStory" element={<OurStorymain />} />
-            <Route path="/memberShip" element={<Membership />} />
-            <Route path="/write" element={<Write />} />
-            <Route path="/logIn" element={<Login />} />
-            <Route path="/startIn" element={<Login />} />
-            <Route path="/register" element={<Signup />} />
-            <Route path="/loading" element={<Loading />} />
-          </Routes>
-        </>
-      )}
+          {Data ? (
+            <Div Data={Data}>
+              <Navbar2 />
 
-      {/* <Routes>
-        <Route path="/" element={<Landingpage />} />
-        <Route path="/ourStory" element={<OurStorymain />} />
-        <Route path="/memberShip" element={<Membership />} />
-        <Route path="/write" element={<Write />} />
-        <Route path="/logIn" element={<Login />} />
-        <Route path="/startIn" element={<Login />} />
-        <Route path="/register" element={<Signup />} />
-        <Route path="/loading" element={<Loading />} />
-        <Route path="/list" element={<List />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/WriteBlog" element={<WriteBlog />} />
-        <Route path="/YourStory" element={<YourStory />} />
-        <Route path="/publish" element={<Lastblog />} />
-        <Route path="/Notifications" element={<Notifications />} />
-      </Routes> */}
-      {/* <Lastblog /> */}
-      {/* <YourStory /> */}
-      {/* {Data ? <SideBar /> : null} */}
+              <Routes>
+                <Route path="/list" element={<List />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/WriteBlog" element={<WriteBlog />} />
+                <Route path="/YourStory" element={<YourStory />} />
+                <Route path="/publish" element={<Lastblog />} />
+                <Route path="/Notifications" element={<Notifications />} />
+              </Routes>
+              <SideBar />
+            </Div>
+          ) : (
+            <>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Landingpage />} />
+                <Route path="/ourStory" element={<OurStorymain />} />
+                <Route path="/memberShip" element={<Membership />} />
+                <Route path="/write" element={<Write />} />
+                <Route path="/logIn" element={<Login />} />
+                <Route path="/startIn" element={<Login />} />
+                <Route path="/register" element={<Signup />} />
+                <Route path="/loading" element={<Loading />} />
+              </Routes>
+            </>
+          )}
+        </>
+      ) : null}
     </>
   );
 };
-
 
 export default App;
