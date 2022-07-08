@@ -13,7 +13,7 @@ export const Loading = () => {
     const timer = setTimeout(() => {
       // console.log("This will run after 1 second!");
       dispatch(isAuthorized(true));
-      navigate("/Home");
+      navigate("/home");
     }, 5000);
     return () => clearTimeout(timer);
   }, []);

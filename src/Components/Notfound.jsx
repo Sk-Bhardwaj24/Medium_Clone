@@ -1,23 +1,40 @@
 import React from "react";
+import styles from "../styles/Notfound.module.css";
+import styled from "styled-components";
+const Anchor = styled.a`
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--button);
+  color: var(--button-color);
+  padding: 1rem 4rem;
+  border-radius: 4rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.05rem;
+`;
 
 const Notfound = () => {
   return (
-    <div>
-      <h1>404</h1>
-      <div className="cloak__wrapper">
-        <div className="cloak__container">
-          <div className="cloak"></div>
+    <div className={styles.Notfound}>
+      <h1 className={styles.H1F}>404</h1>
+      <div className={styles.cloak__wrapper}>
+        <div className={styles.cloak__container}>
+          <div className={styles.cloak}></div>
         </div>
       </div>
-      <div className="info">
+      <div className={styles.info}>
         <h2>We can't find that page</h2>
-        <p>
+        <p className={styles.P1F}>
           We're fairly sure that page used to be here, but seems to have gone
           missing. We do apologise on it's behalf.
         </p>
-        <a href="https://jhey.dev" target="_blank" rel="noreferrer noopener">
+        <Anchor
+          className={styles.A}
+          href="https://sk-bhardwaj-medium-clone.netlify.app/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           Home
-        </a>
+        </Anchor>
       </div>
     </div>
   );
