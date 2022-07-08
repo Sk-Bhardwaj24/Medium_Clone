@@ -36,7 +36,7 @@ const App = ({ hideLoader }) => {
     setTimeout(() => {
       hideLoader();
       setloading(false);
-    }, 2000);
+    }, 2000000);
   }
   const dispatch = useDispatch();
 
