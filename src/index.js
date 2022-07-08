@@ -9,9 +9,16 @@ import { store } from "./Redux/store";
 import { BrowserRouter } from "react-router-dom";
 
 const loader = document.querySelector(".loader-container");
-const showLoader = () => loader.classList.remove("loader--hide");
+const loader1 = document.querySelector(".loader1");
+const showLoader = () => {
+  loader.classList.remove("loader--hide");
+  loader1.classList.remove("loader--hide");
+};
 
-const hideLoader = () => loader.classList.add("loader--hide");
+const hideLoader = () => {
+  loader.classList.add("loader--hide");
+  loader1.classList.add("loader--hide");
+};
 
 ReactDOM.render(
   <React.StrictMode>
