@@ -23,10 +23,7 @@ const Notfound = () => {
       </div>
       <div className={styles.info}>
         <h2>We can't find that page</h2>
-        <p className={styles.P1F}>
-          We're fairly sure that page used to be here, but seems to have gone
-          missing. We do apologise on it's behalf.
-        </p>
+        <p className={styles.P1F}>Oops...</p>
         <Anchor
           className={styles.A}
           href="https://sk-bhardwaj-medium-clone.netlify.app/"

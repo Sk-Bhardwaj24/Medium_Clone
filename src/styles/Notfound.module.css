@@ -37,6 +37,8 @@
 } */
 .P1F {
   font-weight: 100;
+  font-size: 50px;
+  color: red;
 }
 .H1F {
   animation: swing var(--speed) infinite alternate ease-in-out;
@@ -99,7 +101,7 @@
   max-width: clamp(16rem, 90vmin, 25rem);
 }
 .info > p {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 @-moz-keyframes swing {
   0% {
