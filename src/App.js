@@ -22,6 +22,7 @@ import { List } from "./LoginComp/List";
 import { loadData } from "./Localstorage";
 import { isAuthorized } from "./Redux/IsAuth/action";
 import { Home } from "./AfterLogIn/Home.jsx";
+import Notfound from "./Components/Notfound";
 const Div = styled.div`
   display: ${(props) => (props.Data ? "flex" : "block")};
   justify-content: ${(props) => (props.Data ? "space-between" : "null")};
@@ -47,6 +48,21 @@ const App = ({ hideLoader }) => {
   let Data = useSelector((store) => store.IsAuth.IsAuth);
   // Data = true;
   // console.log(Data);
+  let url = window.location.pathname;
+  if (Data) {
+    if (
+      url === "/list" ||
+      url === "/home" ||
+      url === "/WriteBlog" ||
+      url === "/YourStory" ||
+      url === "/publish" ||
+      url === "/Notifications"
+    ) {
+      Data = true;
+    } else {
+      Data = false;
+    }
+  }
   return (
     <>
       {loading === false ? (
@@ -77,6 +93,7 @@ const App = ({ hideLoader }) => {
                 <Route path="/startIn" element={<Login />} />
                 <Route path="/register" element={<Signup />} />
                 <Route path="/loading" element={<Loading />} />
+                <Route path="*" exact={true} element={<Notfound />} />
               </Routes>
             </>
           )}
