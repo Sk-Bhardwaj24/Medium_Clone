@@ -48,7 +48,18 @@ const App = ({ hideLoader }) => {
   let Data = useSelector((store) => store.IsAuth.IsAuth);
 
   let url = window.location.pathname;
-  if (Data) {
+
+  if (
+    Data === true &&
+    url !== "/" &&
+    url !== "/ourStory" &&
+    url !== "/memberShip" &&
+    url !== "/write" &&
+    url !== "/logIn" &&
+    url !== "/startIn" &&
+    url !== "/register"
+  ) {
+    console.log(url);
     if (
       url === "/loading" ||
       url === "/list" ||
@@ -63,15 +74,17 @@ const App = ({ hideLoader }) => {
       Data = false;
     }
   }
+
   return (
     <>
       {loading === false ? (
         <>
           {Data ? (
             <Div Data={Data}>
-              <Navbar2 />
+              <Navbar2 Data={Data} />
 
               <Routes>
+                <Route path="/" element={<Home />} />
                 <Route path="/list" element={<List />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/loading" element={<Loading />} />
@@ -80,7 +93,7 @@ const App = ({ hideLoader }) => {
                 <Route path="/publish" element={<Lastblog />} />
                 <Route path="/Notifications" element={<Notifications />} />
               </Routes>
-              <SideBar />
+              <SideBar Data={Data} />
             </Div>
           ) : (
             <>
